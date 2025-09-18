@@ -1,80 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>project</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* =========================
+       COLOR THEME
+    ========================== */
+    :root {
+      --deep: #472D2D;
+      --warm: #553939;
+      --rose: #704F4F;
+      --soft: #A77979;
+      --light: #F5F5F5;
+    }
+
+    body {
+      background-color: var(--deep);
+      color: var(--light);
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================== */
+    .navbar {
+      background-color: var(--warm) !important;
+    }
+    .navbar-brand, .nav-link {
+      color: var(--light) !important;
+      transition: color 0.3s ease;
+    }
+    .nav-link:hover {
+      color: var(--soft) !important;
+    }
+
+    /* =========================
+       HERO SECTION
+    ========================== */
+    .hero-section {
+      background: linear-gradient(135deg, var(--warm), var(--rose));
+      color: var(--light);
+      padding: 6rem 1rem;
+      text-align: center;
+      animation: fadeSlide 1s ease forwards;
+    }
+    .hero-section .btn-primary {
+      background-color: var(--soft);
+      border: none;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .hero-section .btn-primary:hover {
+      background-color: var(--rose);
+      transform: scale(1.05);
+    }
+
+    /* =========================
+       FEATURE CARDS
+    ========================== */
+    .card {
+      background-color: var(--rose);
+      color: var(--light);
+      border: none;
+      border-radius: 1rem;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeSlide 1s ease forwards;
+    }
+    .card:nth-child(1) { animation-delay: 0.3s; }
+    .card:nth-child(2) { animation-delay: 0.6s; }
+    .card:nth-child(3) { animation-delay: 0.9s; }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 10px 25px rgba(167, 121, 121, 0.5);
+    }
+
+    /* Make all images same size */
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 0.75rem;
+      transition: transform 0.3s ease;
+    }
+
+    /* Zoom image slightly on card hover */
+    .card:hover img {
+      transform: scale(1.05);
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+    footer {
+      background-color: var(--warm);
+      color: var(--light);
+    }
+    footer a {
+      color: var(--light);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    footer a:hover {
+      color: var(--soft);
+    }
+
+    /* =========================
+       ANIMATIONS
+    ========================== */
+    @keyframes fadeSlide {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Startup</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navMenu">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-            </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Startup</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <h1 class="display-4 fw-bold">Welcome to My Website</h1>
+    <p class="lead">Building responsive websites with Bootstrap</p>
+    <img src="https://www.shutterstock.com/shutterstock/videos/3447871571/thumb/12.jpg?ip=x480"
+         class="img-fluid rounded my-3" height="400" width="400">
+    <br>
+    <a href="about.html" class="btn btn-primary btn-lg mt-3">Learn More</a>
+  </section>
+
+  <!-- Features -->
+  <section class="container my-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card p-3 h-100 text-center">
+          <h5 class="card-title">Feature 1</h5>
+          <img src="https://i.pinimg.com/736x/ed/cc/9c/edcc9cba1b65ba2fdbed46335c35c82e.jpg" class="img-fluid rounded mb-3">
+          <p class="card-text">“Architectural Beauty in Every Corner”</p>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="bg-light text-center py-5">
-        <h1 class="display-4 fw-bold">Welcome to My Website</h1>
-        <p class="lead">Building responsive websites with Bootstrap</p>
-        <img src="https://www.shutterstock.com/shutterstock/videos/3447871571/thumb/12.jpg?ip=x480"
-            class="img-fluid rounded" height="400" width="400">
-        <br> <a href="about.html" class="btn btn-primary btn-lg mt-3">Learn More</a>
-    </section>
-
-    <!-- Features -->
-    <section class="container my-5">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-                <div class="card p-3 h-100 text-center">
-                    <h5 class="card-title">Feature 1</h5>
-                    <img src="https://i.pinimg.com/736x/ed/cc/9c/edcc9cba1b65ba2fdbed46335c35c82e.jpg"
-                     <p class="card-text">“Architectural Beauty in Every Corner”</p>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card p-3 h-100 text-center">
-                    <h5 class="card-title">Feature 2</h5>
-                    <img src="https://w0.peakpx.com/wallpaper/59/567/HD-wallpaper-web-designing-training-in-pune-web-design-web-design-training-in-pune-website-design-training-web-development-course-in-pune-web-development-training-in-india-website-design-training-in-india.jpg"
-                        <p class="card-text">"Built with Bootstrap utilities for fast styling".</p>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card p-3 h-100 text-center">
-                    <h5 class="card-title">Feature 3</h5>
-                    <img src="https://c0.wallpaperflare.com/preview/697/898/445/cloud-computing-illustration-technology.jpg"
-                    <p class="card-text">“Modern Living, Timeless Design”</p>
-                </div>
-            </div>
+      </div>
+      <div class="col">
+        <div class="card p-3 h-100 text-center">
+          <h5 class="card-title">Feature 2</h5>
+          <img src="https://w0.peakpx.com/wallpaper/59/567/HD-wallpaper-web-designing-training-in-pune-web-design-web-design-training-in-pune-website-design-training-web-development-course-in-pune-web-development-training-in-india-website-design-training-in-india.jpg" class="img-fluid rounded mb-3">
+          <p class="card-text">"Built with Bootstrap utilities for fast styling"</p>
         </div>
-    </section>
+      </div>
+      <div class="col">
+        <div class="card p-3 h-100 text-center">
+          <h5 class="card-title">Feature 3</h5>
+          <img src="https://c0.wallpaperflare.com/preview/697/898/445/cloud-computing-illustration-technology.jpg" class="img-fluid rounded mb-3">
+          <p class="card-text">“Modern Living, Timeless Design”</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-light text-center py-3">
-        <p class="mb-1">© 2025 MyWebsite. All Rights Reserved.</p>
-        <small>
-            <a href="index.html" class="text-light text-decoration-none me-3">Home</a>
-            <a href="about.html" class="text-light text-decoration-none me-3">About</a>
-            <a href="contact.html" class="text-light text-decoration-none">Contact</a>
-        </small>
-    </footer>
-
+  <!-- Footer -->
+  <footer class="text-center py-3">
+    <p class="mb-1">© 2025 MyWebsite. All Rights Reserved.</p>
+  </footer>
 
 </body>
-
 </html>
